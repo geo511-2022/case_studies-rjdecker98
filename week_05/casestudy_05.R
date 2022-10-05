@@ -13,7 +13,7 @@ library(ggplot2)
 #load 'world' data
 data(world)
 
-#load 'states' boundaries
+#load 'states' data
 data(us_states)
 
 #albers
