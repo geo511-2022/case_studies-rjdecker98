@@ -1,3 +1,9 @@
+---
+title: "Case Study 09"
+author: Bobby Decker
+date: 11/1/2022
+output: github_document
+---
 #install.packages("ggmap")
 #install.packages("rnoaa")
 #install.packages("spData")
