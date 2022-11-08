@@ -29,7 +29,7 @@ gdp_life
 #create gapminder_continent
 gapminder_continent = gap_1 %>% 
   group_by(continent, year) %>%
-  summarise(gdpPercapweighted = weighted.mean(x = gdpPercap, w = pop),
+  summarize(gdpPercapweighted = weighted.mean(x = gdpPercap, w = pop),
             pop = sum(as.numeric(pop))) 
 
 #plot 2
