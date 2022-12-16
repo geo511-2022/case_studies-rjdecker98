@@ -1,7 +1,51 @@
 ---
 title: "Case Study 06"
-author: Your Name
-date: August 1, 2020
+author: Bobby Decker
+date: October 11, 2022
 output: github_document
 ---
- 
+
+
+library(raster)
+library(sp)
+library(spData)
+library(tidyverse)
+library(sf)
+library(ncdf4)
+
+#load 'world' data from spData package
+data(world) 
+
+
+download.file("https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc","crudata.nc", method = "curl")
+tmean=raster("crudata.nc")
+
+#prepare country polygon data
+world_ob <- world %>%
+  filter(name_long != "Antarctica")
+world_sp<-as(world, "Spatial")
+
+#prepare climate data
+tmax_annual <- max(tmean)
+names(tmax_annual <- "tmax")
+
+#calculate max temp in each country
+tmax_country <-raster::extract(tmax_annual, world_ob, fun=max, na.rm=T, small=T, sp=T) %>%
+  st_as_sf(world_ob)
+
+#create plot 
+tmax_plot<-ggplot(tmax_country,aes(fill=tmax))+
+geom_sf()
+scale_fill_virisdis_c(name="Annual\nMaximum\nTemperature (C)") +
+theme(legend.position="bottom")
+tmax_plot
+
+hottest_country<- tmax_country %>%
+  group_by(continent) %>%  
+  select(name_long, continent, tmax) %>% 
+  arrange(.by_group = TRUE) %>% 
+  st_set_geometry(NULL) %>% 
+  slice_max(order_by = tmax) 
+
+#print hottest country
+hottest_country

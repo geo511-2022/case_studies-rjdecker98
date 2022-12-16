@@ -1,0 +1,39 @@
+---
+title: "Project Proposal Template"
+author: Bobby Decker
+output: 
+  github_document
+---
+
+[<i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i> Download this file as a template ](http://adamwilson.us/SpatialDataScience/scripts/Project_ProposalTemplate.Rmd).
+
+# Introduction to problem/question
+  
+# Problem / Question
+For my project I would like to create detailed visualizations of the spread of diabetes in the United States over the past twenty years while accounting for variables of gender and age.
+
+# Inspiring Examples
+
+.
+
+## Example 1
+![](https://www.5haw.com/posts/2019-07-10-week-3-making-an-animated-map-using-ggmap-and-gganimate_files/MPCmap.gif)
+I found this graph very eye-catching and easy to read due to its ability to animate and show the change of exposure over time through color variety.
+
+## Example 2
+![](https://sjmgarnier.github.io/viridis/reference/figures/maps.png)
+I like this graph a lot because I want to use a viridis colorway to increase the readability of the maps I intend to create. I also am considering using facets here in conjuntion with an animated map to further convey the data.
+## Example 3
+
+
+# Proposed data sources
+
+Be as specific as possible.
+
+# Proposed methods
+
+List the approach you will use. Don't simply list packages, tell me what you will do with them.
+
+# Expected results
+
+Describe what you want to produce (graphics, analyses, etc.)
